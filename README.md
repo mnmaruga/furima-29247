@@ -57,6 +57,7 @@ Things you may want to cover:
 | deli_fee_id    | integer    | null: false                    |
 | area_id        | integer    | null: false                    |
 | deli_day_id    | integer    | null: false                    |
+| price          | integer    | null: false                    |
 | favorite       | integer    |                                |
 | sold           | boolean    |                                |
 
