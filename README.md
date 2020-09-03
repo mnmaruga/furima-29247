@@ -53,18 +53,18 @@ Things you may want to cover:
 | area_id        | integer    | null: false                    |
 | deli_day_id    | integer    | null: false                    |
 | price          | integer    | null: false                    |
-| favorite       | integer    |                                |
-| sold           | boolean    |                                |
+| like           | integer    |                                |
 
 ### Association
 
 - belongs_to :user
 - has_one :buyer
+- has_one :sale
 - has_one_attached :image
 - belongs_to_active_hash :item_state
 - belongs_to_active_hash :deliver
 
-## buyersテーブル
+## customersテーブル
 
 | Column     | Type       | Option                         |
 | ---------- | ---------- | ------------------------------ |
@@ -80,3 +80,14 @@ Things you may want to cover:
 
 - belongs_to :item
 - belongs_to_active_hash :prefect
+
+## salesテーブル
+
+| Column     | Type       | Option                         |
+| ---------- | ---------- | ------------------------------ |
+| item       | references | null: false, foreign_key: true |
+| sold       | boolean    |                                |
+
+### Association
+
+- belongs_to :item
