@@ -40,12 +40,14 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
+- has_one :sales
 
 ## items テーブル
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
 | user           | references | null: false, foreign_key: true |
+| item           | string     | null: false                    |
 | detail         | text       | null: false                    |
 | category_id    | integer    | null: false                    |
 | status_id      | integer    | null: false                    |
@@ -58,7 +60,6 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- has_one :buyer
 - has_one :sale
 - has_one_attached :image
 - belongs_to_active_hash :item_state
@@ -68,17 +69,17 @@ Things you may want to cover:
 
 | Column     | Type       | Option                         |
 | ---------- | ---------- | ------------------------------ |
-| item       | references | null: false, foreign_key: true |
-| postal     | integer    | null: false                    |
+| sale       | references | null: false, foreign_key: true |
+| postal     | string     | null: false                    |
 | prefect_id | integer    | null: false                    |
 | city       | string     | null: false                    |
 | adress     | string     | null: false                    |
 | building   | string     |                                |
-| tel        | integer    | null: false                    |
+| tel        | string     | null: false                    |
 
 ### Association
 
-- belongs_to :item
+- belongs_to :sale
 - belongs_to_active_hash :prefect
 
 ## salesテーブル
@@ -86,8 +87,10 @@ Things you may want to cover:
 | Column     | Type       | Option                         |
 | ---------- | ---------- | ------------------------------ |
 | item       | references | null: false, foreign_key: true |
-| sold       | boolean    |                                |
+| user       | references | null: false, foreign_key: true |
 
 ### Association
 
 - belongs_to :item
+- belongs_to :user
+- has_one :customer
