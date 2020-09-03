@@ -100,7 +100,7 @@ Things you may want to cover:
 - has_one :credit
 - belongs_to_active_hash :prefect
 
-## creditテーブル
+## creditsテーブル
 
 | Column       | Type       | Option                         |
 | ------------ | ---------- | ------------------------------ |
