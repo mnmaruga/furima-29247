@@ -10,7 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :area_id,    null: false
       t.integer :deli_day_id,null: false
       t.integer :price,      null: false
-      t.integer :like,       null: false
+      t.integer :like,default: "0"
       t.timestamps
     end
   end
