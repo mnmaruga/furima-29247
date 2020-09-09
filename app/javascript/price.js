@@ -7,7 +7,6 @@ function calc () {
     let profit = document.getElementById("profit");
     let sum2 = price.value - Math.round(sum1)
     profit.innerHTML = sum2.toLocaleString()
-    e.preventDefault();
   });
 }
 window.addEventListener("load", calc);
