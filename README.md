@@ -62,8 +62,11 @@ Things you may want to cover:
 - belongs_to :user
 - has_one :sale
 - has_one_attached :image
-- belongs_to_active_hash :item_state
-- belongs_to_active_hash :deliver
+- belongs_to_active_hash :category
+- belongs_to_active_hash :status
+- belongs_to_active_hash :deli_fee
+- belongs_to_active_hash :area
+- belongs_to_active_hash :deli_day
 
 ## customersテーブル
 
