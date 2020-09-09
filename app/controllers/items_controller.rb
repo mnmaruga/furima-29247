@@ -11,7 +11,7 @@ before_action :move_to_index, except: [:index]
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to new_user_session_path
+      redirect_to root_path
     else
       render "new"
     end
@@ -25,7 +25,7 @@ before_action :move_to_index, except: [:index]
 
   def move_to_index
     unless user_signed_in?
-      redirect_to action: :index
+      redirect_to new_user_session_path
     end
   end
 end
