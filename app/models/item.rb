@@ -19,10 +19,13 @@ class Item < ApplicationRecord
     validates :deli_fee
     validates :area
     validates :deli_day
+    validates :price
   end
-  validates :price, presence: true
-  validates :price, format: { with: /\d/ }
-  validates :price, inclusion: { in: 300..9999999 }
-  validates :category_id, :status_id, :deli_fee_id, :area_id, :deli_day_id, numericality: { other_than: 1 }
-
+  validates :price, format: { with: /\d/, message: "Half-width number" }
+  validates :price, inclusion: { in: 300..9_999_999, message: "Out of setting range"}
+  validates :category_id, numericality: { other_than: 1, message: "Select"}
+  validates :status_id, numericality: { other_than: 1, message: "Select"}
+  validates :deli_fee_id, numericality: { other_than: 1, message: "Select"}
+  validates :area_id, numericality: { other_than: 1, message: "Select"}
+  validates :deli_day_id, numericality: { other_than: 1, message: "Select"}
 end

@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: [:index]
 
   def index
   end
@@ -13,7 +13,7 @@ before_action :move_to_index, except: [:index]
     if @item.save
       redirect_to root_path
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -24,8 +24,6 @@ before_action :move_to_index, except: [:index]
   end
 
   def move_to_index
-    unless user_signed_in?
-      redirect_to new_user_session_path
-    end
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
