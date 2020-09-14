@@ -77,13 +77,13 @@ Things you may want to cover:
 | postal     | string     | null: false                    |
 | prefect_id | integer    | null: false                    |
 | city       | string     | null: false                    |
-| adress     | string     | null: false                    |
+| address    | string     | null: false                    |
 | building   | string     |                                |
 | tel        | string     | null: false                    |
 
 ### Association
 
-- belongs_to :sale
+- belongs_to :item
 - belongs_to_active_hash :prefect
 
 ## salesテーブル
