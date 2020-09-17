@@ -83,7 +83,7 @@ Things you may want to cover:
 
 ### Association
 
-- belongs_to :item
+- belongs_to :order
 - belongs_to_active_hash :prefect
 
 ## ordersテーブル
@@ -97,4 +97,4 @@ Things you may want to cover:
 
 - belongs_to :item
 - belongs_to :user
-- has_one :order
+- has_one :address

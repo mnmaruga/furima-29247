@@ -1,19 +1,19 @@
 class OrdersController < ApplicationController
+  before_action :move_to_index
+
   def index
     @item = Item.find(params[:item_id])
   end
 
   def create
     @item = Item.find(params[:item_id])
-    @order = Order.new(order_params)
-    @order.save
+    @order = OrderAddress.new(order_params)
     if @order.valid?
       pay_item
-      # @order.save
+      @order.save
+      binding.pry
       return redirect_to root_path
-    else      
-      # @order.save
-      # binding.pry
+    else
       render 'index'
     end
   end
@@ -21,7 +21,7 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.permit(:token,:item_id, :postal, :prefect_id, :city, :address, :building, :tel, :price)
+    params.permit(:order_address, :token, :item_id, :user_id, :postal, :prefect_id, :city, :address, :building, :tel, :price)
   end
 
   def pay_item
@@ -31,6 +31,10 @@ class OrdersController < ApplicationController
       card: order_params[:token],
       currency:'jpy'
     )
+  end
+
+  def move_to_index
+    redirect_to new_user_session_path unless user_signed_in?
   end
 end
 
