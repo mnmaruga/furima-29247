@@ -60,7 +60,7 @@ Things you may want to cover:
 ### Association
 
 - belongs_to :user
-- has_one :sale
+- has_one :address
 - has_one_attached :image
 - belongs_to_active_hash :category
 - belongs_to_active_hash :status
@@ -68,24 +68,25 @@ Things you may want to cover:
 - belongs_to_active_hash :area
 - belongs_to_active_hash :deli_day
 
-## customersテーブル
+## addressesテーブル
 
 | Column     | Type       | Option                         |
 | ---------- | ---------- | ------------------------------ |
-| sale       | references | null: false, foreign_key: true |
+| item       | references | null: false, foreign_key: true |
+| user       | references | null: false, foreign_key: true |
 | postal     | string     | null: false                    |
 | prefect_id | integer    | null: false                    |
 | city       | string     | null: false                    |
-| adress     | string     | null: false                    |
+| address    | string     | null: false                    |
 | building   | string     |                                |
 | tel        | string     | null: false                    |
 
 ### Association
 
-- belongs_to :sale
+- belongs_to :order
 - belongs_to_active_hash :prefect
 
-## salesテーブル
+## ordersテーブル
 
 | Column     | Type       | Option                         |
 | ---------- | ---------- | ------------------------------ |
@@ -96,4 +97,4 @@ Things you may want to cover:
 
 - belongs_to :item
 - belongs_to :user
-- has_one :customer
+- has_one :address

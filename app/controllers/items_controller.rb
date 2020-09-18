@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all.order(id: :DESC)
-    @sale = Sale.all
+    @order = Order.all
   end
 
   def new
@@ -21,7 +21,7 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @sale = Sale.all
+    @order = Order.all
   end
 
   def update
