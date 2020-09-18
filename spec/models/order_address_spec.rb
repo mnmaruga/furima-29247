@@ -27,19 +27,19 @@ RSpec.describe OrderAddress, type: :model do
       it '郵便番号が入力されていない時' do
         @order.postal = nil
         @order.valid?
-        expect(@order.errors.full_messages).to include("Postal can't be blank", "Postal code input correctly")
+        expect(@order.errors.full_messages).to include("Postal can't be blank", 'Postal code input correctly')
       end
 
       it '郵便番号にハイフンがない時' do
         @order.postal = '1234567'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Postal code input correctly")
+        expect(@order.errors.full_messages).to include('Postal code input correctly')
       end
 
       it '都道府県が選択されていない時' do
         @order.prefect_id = 1
         @order.valid?
-        expect(@order.errors.full_messages).to include("Prefect Select")
+        expect(@order.errors.full_messages).to include('Prefect Select')
       end
 
       it '市区町村が入力されていない時' do
@@ -63,13 +63,13 @@ RSpec.describe OrderAddress, type: :model do
       it '電話番号にハイフンが含まれる時' do
         @order.tel = '090-1234-5678'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Tel is invalid")
+        expect(@order.errors.full_messages).to include('Tel is invalid')
       end
 
       it '電話番号に全角文字が含まれる時' do
         @order.tel = '０９０１２３４５６７８'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Tel Half-width number")
+        expect(@order.errors.full_messages).to include('Tel Half-width number')
       end
     end
   end
