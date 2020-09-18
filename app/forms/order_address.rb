@@ -8,7 +8,9 @@ class OrderAddress
     validates :prefect_id
     validates :city
     validates :address
-    validates :tel,    format: { with: /\d/, message: 'Half-width number' }
+    validates :tel,    format: { with: /\d/, message: 'Half-width number' },
+                       length: { maximum: 11, message: 'is invalid' }
+    validates :token
   end
   validates :prefect_id, numericality: { other_than: 1, message: 'Select' }
 
